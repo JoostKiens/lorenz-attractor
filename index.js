@@ -37,7 +37,7 @@ const draw = () => {
     ), dt)
     lastPos.add(d)
     points.push(lastPos.copy())
-    if (points.length >= 1000) increment = false
+    if (points.length >= 800) increment = false
   } else {
     points.shift()
     if (points.length === 0) increment = true
@@ -53,7 +53,7 @@ const draw = () => {
   noFill()
   beginShape()
   points.forEach((pos, index) => {
-    strokeWeight(index / 2)
+    strokeWeight(index / 3.5)
     vertex(pos.x, pos.y, pos.z)
   })
   endShape()
