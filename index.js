@@ -10,10 +10,10 @@ const settings = {
   attributes: { antialias: true }
 }
 
-const A = 10
-const B = 28
-const C = 8 / 3
-const dt = 0.01
+const SIGMA = 10
+const RHO = 28
+const BETA = 8 / 3
+const DT = 0.01
 const COLOR_STROKE = color(239, 22, 191, 12)
 const COLOR_BACKGROUND = '#2B262D'
 
@@ -29,10 +29,10 @@ const sketch = () => draw
 const draw = () => {
   if (state.increment === true) {
     const d = p5.Vector.mult(createVector(
-      A * (state.lastPos.y - state.lastPos.x),
-      state.lastPos.x * (B - state.lastPos.z) - state.lastPos.y,
-      state.lastPos.x * state.lastPos.y - C * state.lastPos.z
-    ), dt)
+      SIGMA * (state.lastPos.y - state.lastPos.x),
+      state.lastPos.x * (RHO - state.lastPos.z) - state.lastPos.y,
+      state.lastPos.x * state.lastPos.y - BETA * state.lastPos.z
+    ), DT)
     state.lastPos.add(d)
     state.points.push(state.lastPos.copy())
     if (state.points.length >= 1000) state.increment = false
