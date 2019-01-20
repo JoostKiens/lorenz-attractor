@@ -27,37 +27,35 @@ const state = {
 const sketch = () => draw
 
 const draw = () => {
-  let { angle, lastPos, points, increment } = state
-
-  if (increment === true) {
+  if (state.increment === true) {
     const d = p5.Vector.mult(createVector(
-      A * (lastPos.y - lastPos.x),
-      lastPos.x * (B - lastPos.z) - lastPos.y,
-      lastPos.x * lastPos.y - C * lastPos.z
+      A * (state.lastPos.y - state.lastPos.x),
+      state.lastPos.x * (B - state.lastPos.z) - state.lastPos.y,
+      state.lastPos.x * state.lastPos.y - C * state.lastPos.z
     ), dt)
-    lastPos.add(d)
-    points.push(lastPos.copy())
-    if (points.length >= 800) increment = false
+    state.lastPos.add(d)
+    state.points.push(state.lastPos.copy())
+    if (state.points.length >= 1000) state.increment = false
   } else {
-    points.shift()
-    if (points.length === 0) increment = true
+    state.points.shift()
+    if (state.points.length === 0) state.increment = true
   }
 
   clear()
   background(COLOR_BACKGROUND)
   translate(0, 0, -50)
-  rotateY(angle)
-  rotateX(angle / 2)
+  rotateY(state.angle)
+  rotateX(state.angle / 2)
   scale(8)
   stroke(COLOR_STROKE)  
   noFill()
   beginShape()
-  points.forEach((pos, index) => {
-    strokeWeight(index / 3.5)
+  state.points.forEach((pos, index) => {
+    strokeWeight(index / 2)
     vertex(pos.x, pos.y, pos.z)
   })
   endShape()
-  angle += 0.015
+  state.angle += 0.015
 }
 
 canvasSketch(sketch, settings)
