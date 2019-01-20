@@ -1,0 +1,57 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+body {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+}
+
+.Footer {
+  bottom: 0;
+  display: flex;
+  height: 42px;
+  justify-content: flex-end;
+  left: 0;
+  padding-right: 9px;
+  position: fixed;
+  right: 0;
+}
+
+.Footer-link {
+  text-decoration: none;
+  width: 42px;
+  height: 42px;
+  fill: rgb(153, 153, 153);
+  transition: fill 200ms;
+  display: flex;
+}
+
+.Footer-link:hover,
+.Footer-link:focus {
+  fill: rgb(47, 161, 214);
+}
+
+.Footer-icon {
+  width: 24px;
+  height: 24px;
+  margin: auto;
+}
+
