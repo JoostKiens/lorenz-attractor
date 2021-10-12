@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "canvas-sketch index.js --output=output/ --html=index.html --hot",
-    "dist": "canvas-sketch index.js --html=index.html --dir docs --build --no-compress; cp index.css docs/index.css"
+    "dist": "canvas-sketch index.js --html=index.html --dir dist --build --no-compress; cp index.css dist/index.css"
   },
   "keywords": [],
   "author": "",
